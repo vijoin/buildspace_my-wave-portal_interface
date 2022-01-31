@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ethers } from "ethers";
 import './App.css';
 import screen_mask from './img/hSGyubQ.gif';
@@ -9,6 +9,20 @@ export default function App() {
   const wave = () => {
     
   }
+
+  const checkIfWalletConnected = () => {
+    const { ethereum } = window;
+
+    if (!ethereum) {
+      console.log("Make sure you have metamask!");
+    } else {
+      console.log("We have the ethereum object", ethereum)
+    }
+  };
+
+  useEffect(() => {
+    checkIfWalletConnected();
+  }, [])
   
   return (
     <div className="mainContainer">
